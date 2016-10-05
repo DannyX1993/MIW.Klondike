@@ -1,17 +1,46 @@
 package es.upm.miw.klondikedga;
 
-public class BoardStair extends CardsStair {
+import java.util.ArrayList;
 
-	public BoardStair() {
-		super();
+public class BoardStair extends CardsStair {
+	
+	public BoardStair(ArrayList<Card> cards) {
+		super(cards);
 	}
 	
-	public void addCard(Card card) {
-		assert card != null;
-		if(cards.size() == 0 && card.isKing()) { 
-			super.addCard(card); 
-		} else if(getLastCard().getSuit() != card.getSuit()  && card.isNumOneLess(getLastCard())) { 
-			super.addCard(card);
+	@Override
+	public boolean canAddCards(ArrayList<Card> cardsToAdd) {
+		assert cardsToAdd != null && cardsToAdd.size() > 0;
+		
+		for(Card card : cardsToAdd) {
+			if(getNumCards() > 0) {
+				Card lastCard = getLastCard();
+				int newSize = getNumCards() + cardsToAdd.size();
+				if(card.getSuit() != card.getSuit() && card.getNum() + 1 == lastCard.getNum() && newSize <= MAX_CARDS) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				if(!card.isKing()) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public void print() {
+		if(getNumCards() > 0) {
+			for(Card card : cards) {
+				System.out.print(card);
+			}
+			System.out.print("\n");
+		} else {
+			System.out.println("<vacío>");
 		}
 	}
 	

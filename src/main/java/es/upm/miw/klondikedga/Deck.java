@@ -7,12 +7,22 @@ public class Deck {
 
 	private ArrayList<Card> cards;
 	
+	private ArrayList<Card> discards;
+	
 	private static final int TOTAL_CARDS = 52;
 	
 	public static final int CARDS_PER_SUIT = TOTAL_CARDS / Suit.NUM_SUITS;
 	
 	public Deck() {
 		cards = new ArrayList<Card>(TOTAL_CARDS);
+		discards = new ArrayList<Card>();
+	}
+	
+	public ArrayList<Card> getDiscards() {
+		return discards;
+	}
+	
+	public void initCards() {
 		setCardsOfSuit(Suit.COINS);
 		setCardsOfSuit(Suit.SWORDS);
 		setCardsOfSuit(Suit.BASTOS);
@@ -41,4 +51,62 @@ public class Deck {
 	public ArrayList<Card> getCards() {
 		return cards;
 	}
+
+	public ArrayList<Card> getGroupOfCards(int upturnedCardsNum, int facedownCardsNum) {
+		ArrayList<Card> groupedCards = new ArrayList<Card>(upturnedCardsNum + facedownCardsNum);
+		for(int i = 0, upturnedCount = 0, facedownCount = 0; i < (upturnedCardsNum + facedownCardsNum); i++) {
+			if(facedownCount < facedownCardsNum) {
+				groupedCards.add(this.extractNextCard());
+				facedownCount++;
+			} else if(upturnedCount < upturnedCardsNum) {
+				Card nextCard = this.extractNextCard();
+				nextCard.setUpturned(true);
+				groupedCards.add(nextCard);
+				upturnedCount++;
+			}
+		}
+		return groupedCards;
+	}
+	
+	public void moveNextCardsToDiscards(int numCards) {
+		assert numCards > 0;
+		for(Card card : getFlippedCards(numCards)) {
+			discards.add(card);
+		}
+	}
+	
+	private ArrayList<Card> getFlippedCards(int numCards) {
+		ArrayList<Card> cardsToDiscards = new ArrayList<Card>(numCards);
+		for(int i = 0; i < numCards; i++) {
+			Card card = extractNextCard();
+			card.setUpturned(true);
+			cardsToDiscards.add(card);
+		}
+		return cardsToDiscards;
+	}
+	
+	private Card extractNextCard() {
+		Card nextCard = cards.get(getNumCards() - 1);
+		cards.remove(getNumCards() - 1);
+		return nextCard;
+	}
+	
+	public void print() {
+		System.out.print("Baraja: ");
+		if(getNumCards() > 0) {
+			System.out.println("[X,X]");
+		} else {
+			System.out.println("<vacío>");
+		}
+		System.out.print("Descarte: ");
+		if(discards.size() > 0) {
+			for(Card card : discards) {
+				System.out.print(card);
+			}
+			System.out.print("\n");
+		} else {
+			System.out.println("<vacío>");
+		}
+	}
+	
 }

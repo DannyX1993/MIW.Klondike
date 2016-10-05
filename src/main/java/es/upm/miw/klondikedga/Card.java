@@ -72,13 +72,20 @@ public class Card {
 	@Override
 	public String toString() {
 		String current = null;
+		String ret = null;
 		
-		if(this.isAce()) current = ""+SymbolsCard.ACE.getSymbol();
-		else if(this.isJack()) current = ""+SymbolsCard.JACK.getSymbol();
-		else if(this.isQueen()) current = ""+SymbolsCard.QUEEN.getSymbol();
-		else if(this.isKing()) current = ""+SymbolsCard.KING.getSymbol();
+		if(getUpturned()) {
+			if(this.isAce()) current = "" + SymbolsCard.ACE.getSymbol();
+			else if(this.isJack()) current = "" + SymbolsCard.JACK.getSymbol();
+			else if(this.isQueen()) current = "" + SymbolsCard.QUEEN.getSymbol();
+			else if(this.isKing()) current = "" + SymbolsCard.KING.getSymbol();
+			
+			ret = "[" + ((current != null) ? current : num) + "," + suit + "]";
+		} else {
+			ret = "[";
+		}
 		
-		return "[" + ((current != null) ? current : num) + "," + suit + "]";
+		return ret;
 	}
 	
 }

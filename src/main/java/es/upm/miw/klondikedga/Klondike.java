@@ -8,12 +8,12 @@ public class Klondike {
 		board = new Board();
 	}
 	
-	public void start() {
-		
+	public void play() {
+		board.print();
 	}
 	
 	public static void main(String[] args) {
-		new Klondike().start();
+		new Klondike().play();
 	}
 	
 }
