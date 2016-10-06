@@ -3,6 +3,7 @@ package view;
 import model.Board;
 import model.Card;
 import model.CardsStair;
+import model.Option;
 import utils.IO;
 import utils.LimitedIntDialog;
 
@@ -29,6 +30,7 @@ public class MenuView {
 		printFoundation();
 		printBoardStairs();
 		io.writeln("---------------------------");
+		printMenu();
 	}
 	
 	private void printDeck() {
@@ -60,6 +62,14 @@ public class MenuView {
 		for(CardsStair cStair : board.getBoardStairs()) {
 			io.write("Escalera " + (i + 1) + ": ");
 			io.write(cStair.toString());
+			i++;
+		}
+	}
+	
+	private void printMenu() {
+		int i = 1;
+		for(Option option: Option.values()) {
+			io.writeln(i + ". " + option.getText());
 			i++;
 		}
 	}

@@ -2,7 +2,7 @@ package controller;
 
 import model.Game;
 
-public class MoveDeckToDiscardsController extends Controller {
+public class MoveDeckToDiscardsController extends OptionController {
 
 	protected MoveDeckToDiscardsController(Game game) {
 		super(game);
@@ -12,13 +12,5 @@ public class MoveDeckToDiscardsController extends Controller {
 	public void accept(ControllerVisitor controllerVisitor) {
 		controllerVisitor.visit(this);
 	}
-
-	@Override
-	public Error validateMove() {
-		if(getGame().deckIsEmpty()) {
-			return Error.DECK_EMPTY;
-		}
-		return null;
-	}
-
+	
 }

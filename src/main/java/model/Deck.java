@@ -52,6 +52,12 @@ public class Deck {
 		return discards.get(getNumDiscards() - 1);
 	}
 	
+	public Card extractLastDiscard() {
+		Card nextCard = getLastDiscard();
+		discards.remove(getNumDiscards() - 1);
+		return nextCard;
+	}
+	
 	public int getCardsPerSuit() {
 		return CARDS_PER_SUIT;
 	}

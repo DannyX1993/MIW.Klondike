@@ -21,7 +21,6 @@ public abstract class CardsStair {
 	}
 	
 	public abstract boolean canAddCards(ArrayList<Card> cardsToAdd);
-	// TODO -> PARTIR LA COMPROBACIÓN EN VARIAS FUNCIONES
 	
 	public void addCards(ArrayList<Card> cardsToAdd) {
 		assert cardsToAdd != null;

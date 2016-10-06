@@ -61,12 +61,20 @@ public class Board {
 		return deck.getDiscards().size();
 	}
 	
+	public Card getLastDiscard() {
+		return deck.getLastDiscard();
+	}
+	
 	public ArrayList<CardsStair> getFoundations() {
 		return foundations;
 	}
 	
 	public ArrayList<CardsStair> getBoardStairs() {
 		return boardStairs;
+	}
+	
+	public CardsStair getBoardStair(int numStair) {
+		return boardStairs.get(numStair - 1);
 	}
 	
 	public CardsStair getFoundationBySuit(Suit suit) {
@@ -84,12 +92,27 @@ public class Board {
 		deck.moveAllDiscardsToDeck();
 	}
 	
-	public void moveFromDiscardsToFoundation() {
+	public boolean isFirstCardToInsertInFoundation() {
+		Card currentDiscard = deck.getLastDiscard();
+		CardsStair stair = getFoundationBySuit(currentDiscard.getSuit());
+		return stair.getNumCards() == 0;
+	}
+	
+	public boolean isLastDiscardAceOfSuit() {
+		return getLastDiscard().getNum() == SymbolsCard.ACE.getNum();
+	}
+	
+	public boolean isOneNumGreaterOfFoundationLastCard() {
 		Card currentDiscard = deck.getLastDiscard();
 		CardsStair foundation = getFoundationBySuit(currentDiscard.getSuit());
-		ArrayList<Card> cardsToAdd = new ArrayList<Card>();
-		cardsToAdd.add(currentDiscard);
-		foundation.addCards(cardsToAdd);
+		Card lastStairCard = foundation.getLastCard();
+		return (foundation.suit == currentDiscard.getSuit() && currentDiscard.getNum() == lastStairCard.getNum() + 1);
+	}
+	
+	public Card getLastCardOfFoundation() {
+		Card currentDiscard = deck.getLastDiscard();
+		CardsStair foundation = getFoundationBySuit(currentDiscard.getSuit());
+		return foundation.getLastCard();
 	}
 	
 	public boolean canMoveDiscardToFoundation() {
@@ -98,6 +121,49 @@ public class Board {
 		ArrayList<Card> cardsToAdd = new ArrayList<Card>();
 		cardsToAdd.add(currentDiscard);
 		return foundation.canAddCards(cardsToAdd);
+	}
+	
+	public void moveFromDiscardsToFoundation() {
+		Card currentDiscard = deck.extractLastDiscard();
+		CardsStair foundation = getFoundationBySuit(currentDiscard.getSuit());
+		ArrayList<Card> cardsToAdd = new ArrayList<Card>();
+		cardsToAdd.add(currentDiscard);
+		foundation.addCards(cardsToAdd);
+	}
+	
+	public boolean isFirstCardToInsertInBoardStair(int numBoardStair) {
+		assert numBoardStair > 0;
+		return getBoardStair(numBoardStair).getNumCards() == 0;
+	}
+	
+	public boolean lastDiscardIsKing() {
+		return getLastDiscard().getNum() == SymbolsCard.KING.getNum();
+	}
+	
+	public boolean lastCardOfBoardStairIsSameSuit(int numBoardStair) {
+		assert numBoardStair > 0;
+		Card currentDiscard = deck.getLastDiscard();
+		return getBoardStair(numBoardStair).getLastCard().getSuit() == currentDiscard.getSuit();
+	}
+	
+	public Card getLastCardOfBoardStair(int numBoardStair) {
+		assert numBoardStair > 0;
+		return getBoardStair(numBoardStair).getLastCard();
+	}
+	
+	public boolean isOneNumLessThanLastCardBoardStair(int numBoardStair){
+		assert numBoardStair > 0;
+		Card currentDiscard = deck.getLastDiscard();
+		return (getBoardStair(numBoardStair).getLastCard().getNum() - 1) == currentDiscard.getNum();
+	}
+	
+	public void moveFromDiscardsToBoardStair(int numBoardStair) {
+		assert numBoardStair > 0;
+		Card currentDiscard = deck.extractLastDiscard();
+		CardsStair cStair = getBoardStair(numBoardStair);
+		ArrayList<Card> cardsToAdd = new ArrayList<Card>();
+		cardsToAdd.add(currentDiscard);
+		cStair.addCards(cardsToAdd);
 	}
 	
 }

@@ -2,11 +2,11 @@ package controller;
 
 import model.Game;
 
-public abstract class Controller {
+public abstract class OptionController {
 	
 	private Game game;
 
-	protected Controller(Game game) {
+	protected OptionController(Game game) {
 		assert game != null;
 		this.game = game;
 	}
@@ -16,7 +16,8 @@ public abstract class Controller {
 	}
 	
 	
-	public abstract Error validateMove();
+	/*public abstract String validateMove();*/
+	
 	public abstract void accept(ControllerVisitor controllerVisitor);
 	
 }

@@ -27,7 +27,7 @@ public class ClosedInterval {
 	
 	@Override
 	public String toString() {
-		return "[" + min + ", " + max + "]";
+		return "[" + min + "-" + max + "]";
 	}
 	
 }

@@ -1,10 +1,10 @@
 package view;
 
-import controller.Controller;
+import controller.OptionController;
 import controller.ControllerVisitor;
 
 public interface View extends ControllerVisitor {
 	
-	public void interact(Controller controller);
+	public void interact(OptionController controller);
 	
 }

@@ -42,7 +42,6 @@ public class Foundation extends CardsStair {
 			for(Card card : cards) {
 				representation += card.toString();
 			}
-			representation += "\n";
 		} else {
 			representation += "<vacío>";
 		}

@@ -1,18 +1,30 @@
 package controller;
 
-public enum Error {
-
-	DECK_EMPTY("ERROR!!! La baraja está vacía"),
-	DECK_WITH_CARDS("ERROR!!! La baraja aun tiene cartas");
+public final class Error {
 	
-	private String message;
+	public static final String DECK_EMPTY = "ERROR!!! La baraja está vacía";
 	
-	private Error(String message) {
-		this.message = message;
+	public static final String DECK_WITH_CARDS = "ERROR!!! La baraja aun tiene cartas";
+	
+	public static final String NO_DISCARDS = "ERROR!!! No hay descartes";
+	
+	public static final String ISNT_ACE = "ERROR!!! La primera carta de un palo debe ser un as";
+	
+	public static final String PUT_ERROR = "ERROR!!! No se puede poner %o sobre %d";
+	
+	public static final String ISNT_KING = "ERROR!!! La primera carte de una escalera debe ser un rey";
+	
+	private Error() {	
 	}
 	
-	@Override
-	public String toString() {
-		return message;
+	public static final String getError(String errorKey) {
+		return errorKey;
+	}
+	
+	public static final String getError(String errorKey, String orig, String dest) {
+		errorKey = errorKey.replace("%o", orig);
+		errorKey = errorKey.replace("%d", dest);
+		return errorKey;
 	}
 }
+
