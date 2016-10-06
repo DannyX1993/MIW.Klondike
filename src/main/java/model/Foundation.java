@@ -1,10 +1,8 @@
-package es.upm.miw.klondikedga;
+package model;
 
 import java.util.ArrayList;
 
 public class Foundation extends CardsStair {
-	
-	private Suit suit;
 	
 	protected static final int MAX_CARDS = 13;
 	
@@ -16,7 +14,8 @@ public class Foundation extends CardsStair {
 
 	@Override
 	public boolean canAddCards(ArrayList<Card> cardsToAdd) {
-		assert cardsToAdd != null && cardsToAdd.size() > 0;
+		assert cardsToAdd != null;
+		assert cardsToAdd.size() > 0;
 		for(Card card : cardsToAdd) {
 			if(getNumCards() > 0) {
 				Card lastCard = getLastCard();
@@ -37,16 +36,23 @@ public class Foundation extends CardsStair {
 	}
 	
 	@Override
-	public void print() {
-		System.out.print("Palo " + suit.getSuitText() + ": ");
+	public String toString() {
+		String representation = "Palo " + suit.getSuitText() + ": ";
 		if(getNumCards() > 0) {
 			for(Card card : cards) {
-				System.out.print(card);
+				representation += card.toString();
 			}
-			System.out.print("\n");
+			representation += "\n";
 		} else {
-			System.out.println("<vacío>");
+			representation += "<vacío>";
 		}
+		return representation;
+	}
+
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

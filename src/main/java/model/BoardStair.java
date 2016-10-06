@@ -1,4 +1,4 @@
-package es.upm.miw.klondikedga;
+package model;
 
 import java.util.ArrayList;
 
@@ -42,6 +42,20 @@ public class BoardStair extends CardsStair {
 		} else {
 			System.out.println("<vacío>");
 		}
+	}
+	
+	@Override
+	public String toString() {
+		String representation = "";
+		if(getNumCards() > 0) {
+			for(Card card : cards) {
+				representation += card.toString();
+			}
+			representation += "\n";
+		} else {
+			representation = "<vacío>";
+		}
+		return representation;
 	}
 	
 }

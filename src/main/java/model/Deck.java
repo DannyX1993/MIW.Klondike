@@ -1,4 +1,4 @@
-package es.upm.miw.klondikedga;
+package model;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,6 +44,14 @@ public class Deck {
 		return cards.size();
 	}
 	
+	public int getNumDiscards() {
+		return discards.size();
+	}
+	
+	public Card getLastDiscard() {
+		return discards.get(getNumDiscards() - 1);
+	}
+	
 	public int getCardsPerSuit() {
 		return CARDS_PER_SUIT;
 	}
@@ -70,6 +78,7 @@ public class Deck {
 	
 	public void moveNextCardsToDiscards(int numCards) {
 		assert numCards > 0;
+		assert numCards <= getNumCards();
 		for(Card card : getFlippedCards(numCards)) {
 			discards.add(card);
 		}
@@ -91,21 +100,11 @@ public class Deck {
 		return nextCard;
 	}
 	
-	public void print() {
-		System.out.print("Baraja: ");
-		if(getNumCards() > 0) {
-			System.out.println("[X,X]");
-		} else {
-			System.out.println("<vacío>");
-		}
-		System.out.print("Descarte: ");
-		if(discards.size() > 0) {
-			for(Card card : discards) {
-				System.out.print(card);
-			}
-			System.out.print("\n");
-		} else {
-			System.out.println("<vacío>");
+	public void moveAllDiscardsToDeck() {
+		for(int i = getNumDiscards() - 1; i >= 0; i--) {
+			Card currentCard = discards.get(i);
+			discards.remove(i);
+			cards.add(currentCard);
 		}
 	}
 	

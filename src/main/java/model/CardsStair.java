@@ -1,4 +1,4 @@
-package es.upm.miw.klondikedga;
+package model;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -6,6 +6,9 @@ import java.util.Stack;
 public abstract class CardsStair {
 
 	protected Stack<Card> cards;
+	
+	protected Suit suit;
+	
 	protected static final int MAX_CARDS = 13;
 	
 	public CardsStair() {
@@ -18,10 +21,10 @@ public abstract class CardsStair {
 	}
 	
 	public abstract boolean canAddCards(ArrayList<Card> cardsToAdd);
+	// TODO -> PARTIR LA COMPROBACIÓN EN VARIAS FUNCIONES
 	
 	public void addCards(ArrayList<Card> cardsToAdd) {
 		assert cardsToAdd != null;
-		assert canAddCards(cardsToAdd);
 		for(Card card : cardsToAdd) {
 			cards.push(card);
 		}

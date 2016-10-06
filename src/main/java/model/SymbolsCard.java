@@ -1,4 +1,6 @@
-package es.upm.miw.klondikedga;
+package model;
+
+import utils.ClosedInterval;
 
 public enum SymbolsCard {
 	

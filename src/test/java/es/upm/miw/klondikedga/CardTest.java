@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import model.Card;
+import model.Suit;
+
 public class CardTest {
 	
 	Card card;

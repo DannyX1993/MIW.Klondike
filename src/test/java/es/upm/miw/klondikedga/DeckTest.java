@@ -5,6 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import model.Card;
+import model.Deck;
+import model.Suit;
+
 public class DeckTest {
 
 	Deck deck;

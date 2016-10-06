@@ -1,4 +1,4 @@
-package es.upm.miw.klondikedga;
+package utils;
 
 public class ClosedInterval {
 	
@@ -10,6 +10,15 @@ public class ClosedInterval {
 		assert min < max;
 		this.min = min;
 		this.max =  max;
+	}
+	
+	
+	public int getMin() {
+		return min;
+	}
+	
+	public int getMax() {
+		return max;
 	}
 	
 	public boolean isWithinRange(int value) {

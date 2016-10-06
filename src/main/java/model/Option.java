@@ -1,4 +1,4 @@
-package es.upm.miw.klondikedga;
+package model;
 
 public enum Option {
 	MOVE_FROM_DECK_TO_WASTE(1, "Mover de baraja a descarte"),
