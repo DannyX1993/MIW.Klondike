@@ -133,7 +133,8 @@ public class Board {
 	
 	public boolean isFirstCardToInsertInBoardStair(int numBoardStair) {
 		assert numBoardStair > 0;
-		return getBoardStair(numBoardStair).getNumCards() == 0;
+		CardsStair cStair = getBoardStair(numBoardStair);
+		return (cStair.getNumCards() == 0) || !cStair.getLastCard().getUpturned();
 	}
 	
 	public boolean lastDiscardIsKing() {
@@ -154,7 +155,7 @@ public class Board {
 	public boolean isOneNumLessThanLastCardBoardStair(int numBoardStair){
 		assert numBoardStair > 0;
 		Card currentDiscard = deck.getLastDiscard();
-		return (getBoardStair(numBoardStair).getLastCard().getNum() - 1) == currentDiscard.getNum();
+		return ((getBoardStair(numBoardStair).getLastCard().getNum() - 1) == currentDiscard.getNum()) || !getBoardStair(numBoardStair).getLastCard().getUpturned();
 	}
 	
 	public void moveFromDiscardsToBoardStair(int numBoardStair) {
@@ -164,6 +165,53 @@ public class Board {
 		ArrayList<Card> cardsToAdd = new ArrayList<Card>();
 		cardsToAdd.add(currentDiscard);
 		cStair.addCards(cardsToAdd);
+	}
+
+	public boolean isBoardStairEmpty(int numBoardStair) {
+		assert numBoardStair > 0;
+		CardsStair cStair = getBoardStair(numBoardStair);
+		return cStair.getNumCards() == 0;
+	}
+
+	public boolean areMoreCardsThanBoardStair(int numStair, int cardsNum) {
+		assert numStair > 0;
+		CardsStair cStair = getBoardStair(numStair);
+		return cStair.getNumCards() < cardsNum;
+	}
+
+	public boolean firstCardBoardStairOrigIsKing(int numBoardStair, int numCards) {
+		CardsStair cStair = getBoardStair(numBoardStair);
+		return cStair.firstNCardIsKing(numCards);
+	}
+	
+	public String getFirstNCardBoardStair(int numBoardStair, int numCards) {
+		CardsStair cStair = getBoardStair(numBoardStair);
+		return cStair.getLastNCard(numCards).toString();
+	}
+	
+	public String getLastCardBoardStair(int numBoardStair) {
+		CardsStair cStair = getBoardStair(numBoardStair);
+		Card lastCard = cStair.getLastCard();
+		return (lastCard == null) ? cStair.toString() : lastCard.toString();
+	}
+	
+	public boolean isFirstNCardOrigBoardStairSameSuitThanLastCardDestBoardStair(int origStair, int numCards, int destStair) {
+		CardsStair origCStair = getBoardStair(origStair);
+		CardsStair destCStair = getBoardStair(destStair);
+		return origCStair.getLastNCard(numCards).getSuit() == destCStair.getLastCard().getSuit();
+	}
+	
+	public boolean isFirstNCardOrigBoardStairOneLessThanLastCardDestBoardStair(int origStair, int numCards, int destStair) {
+		CardsStair origCStair = getBoardStair(origStair);
+		CardsStair destCStair = getBoardStair(destStair);
+		
+		return (origCStair.getLastNCard(numCards).getNum() == destCStair.getLastCard().getNum() - 1) || !destCStair.getLastCard().getUpturned();
+	}
+	
+	public void moveFromBoardStairToBoardStair(int origStair, int destStair, int numCards) {
+		CardsStair origCStair = getBoardStair(origStair);
+		CardsStair destCStair = getBoardStair(destStair);
+		destCStair.addCards(origCStair.extractLastCards(numCards));
 	}
 	
 }

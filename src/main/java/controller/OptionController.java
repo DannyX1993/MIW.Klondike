@@ -15,8 +15,10 @@ public abstract class OptionController {
 		return game;
 	}
 	
-	
-	/*public abstract String validateMove();*/
+	public boolean isBoardStairEmpty(int numBoardStair) {
+		return getGame().isBoardStairEmpty(numBoardStair);
+	}
+
 	
 	public abstract void accept(ControllerVisitor controllerVisitor);
 	

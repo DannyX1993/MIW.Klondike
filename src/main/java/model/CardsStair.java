@@ -46,12 +46,25 @@ public abstract class CardsStair {
 		for(int i = 0; i < numCards; i++) {
 			cardsToExtract.add(cards.pop());
 		}
+		ArrayList<Card> orderedCards = new ArrayList<Card>(numCards);
+		for(int i = cardsToExtract.size() - 1; i >= 0; i--) {
+			orderedCards.add(cardsToExtract.get(i));
+		}
 		
-		return cardsToExtract;
+		return orderedCards;
+	}
+	
+	public Card getLastNCard(int numCards) {
+		assert numCards > 0;
+		return cards.get(cards.size() - numCards);
+	}
+	
+	public Card getFirstCard() {
+		return cards.get(0);
 	}
 	
 	public Card getLastCard() {
-		return cards.peek();
+		return (getNumCards() > 0) ? cards.peek() : null;
 	}
 	
 	public int getNumCards() {
@@ -62,7 +75,10 @@ public abstract class CardsStair {
 		return getNumCards() == MAX_CARDS;
 	}
 	
-	public abstract void print();
+	public boolean firstNCardIsKing(int numCards) {
+		return cards.get(cards.size() - numCards).isKing();
+	}
 	
+	public abstract void print();
 	
 }

@@ -26,6 +26,7 @@ public class Logic {
 		ArrayList<SubDialogController> subdialogControllers = new ArrayList<SubDialogController>(3);
 		subdialogControllers.add(new SubDialogController(game));
 		subdialogControllers.add(new SubDialogController(game));
+		subdialogControllers.add(new SubDialogController(game));
 		controllers.add(new MoveBoardStairToBoardStairController(game, subdialogControllers));
 	}
 	

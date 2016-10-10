@@ -5,7 +5,7 @@ import utils.LimitedIntDialog;
 
 public class MoveFromBoardStairView {
 
-SubDialogController subDialogController;
+	SubDialogController subDialogController;
 	
 	MoveFromBoardStairView(SubDialogController subDialogController) {
 		this.subDialogController = subDialogController;

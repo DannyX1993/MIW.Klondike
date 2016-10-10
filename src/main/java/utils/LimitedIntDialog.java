@@ -4,7 +4,7 @@ import view.ClosedIntervalView;
 
 public class LimitedIntDialog {
 	
-	private String title;
+	private IntDialog intDialog;
 	
 	private ClosedInterval limits;
 	
@@ -12,9 +12,10 @@ public class LimitedIntDialog {
 	
 	public LimitedIntDialog(String title, int min, int max) {
 		assert title != null;
+		intDialog = new IntDialog(title);
 		limits = new ClosedInterval(min, max);
 		limitsView = new ClosedIntervalView("ERROR!!! La opción debe ser entre ", limits);
-		this.title = title + " [" + limits + "]: ";
+		intDialog.setTitle(title + " [" + limits + "]: ");
 	}
 	
 	public LimitedIntDialog(String title, int max) {
@@ -26,7 +27,7 @@ public class LimitedIntDialog {
 		int value;
 		boolean ok;
 		do {
-			value = io.readInt(title);
+			value = io.readInt(intDialog.getTitle());
 			ok = limits.isWithinRange(value);
 			if(!ok) {
 				limitsView.writln();

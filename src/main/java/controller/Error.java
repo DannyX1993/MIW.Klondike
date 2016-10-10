@@ -14,6 +14,10 @@ public final class Error {
 	
 	public static final String ISNT_KING = "ERROR!!! La primera carte de una escalera debe ser un rey";
 	
+	public static final String STAIR_EMPTY = "ERROR!!! Esa escalera está vacía";
+	
+	public static final String MORE_CARDS_THAN_STAIR = "ERROR!!! Se han elegido mas cartas de las disponibles en la escalera";
+	
 	private Error() {	
 	}
 	

@@ -22,27 +22,27 @@ public class ConsoleView implements View {
 	}
 
 	@Override
-	public void visit(MoveDeckToDiscardsController moveDeckToWasteController) {
+	public void visitMoveDeckToDiscardsController(MoveDeckToDiscardsController moveDeckToWasteController) {
 		gameView.interact(moveDeckToWasteController);
 	}
 
 	@Override
-	public void visit(MoveDiscardsToDeckController moveDiscardsToDeckController) {
+	public void visitMoveDiscardsToDeckController(MoveDiscardsToDeckController moveDiscardsToDeckController) {
 		gameView.interact(moveDiscardsToDeckController);
 	}
 
 	@Override
-	public void visit(MoveDiscardsToFoundationController moveDiscardsToSuitController) {
+	public void visitMoveDiscardsToFoundationCotroller(MoveDiscardsToFoundationController moveDiscardsToSuitController) {
 		gameView.interact(moveDiscardsToSuitController);
 	}
 
 	@Override
-	public void visit(MoveDiscardsToBoardStairController moveDiscardsToStairController) {
+	public void visitMoveDiscardsToBoardStairController(MoveDiscardsToBoardStairController moveDiscardsToStairController) {
 		gameView.interact(moveDiscardsToStairController);
 	}
 
 	@Override
-	public void visit(MoveBoardStairToBoardStairController moveBoardStairToBoardStairController) {
+	public void visitMoveBoarsStairToBoardStairController(MoveBoardStairToBoardStairController moveBoardStairToBoardStairController) {
 		gameView.interact(moveBoardStairToBoardStairController);
 	}
 
