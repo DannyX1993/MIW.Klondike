@@ -2,14 +2,18 @@ package controller;
 
 public interface ControllerVisitor {
 	
-	void visitMoveDeckToDiscardsController(MoveDeckToDiscardsController moveDeckToWasteController);
+	void visitMoveDeckToDiscards(MoveDeckToDiscardsController moveDeckToWasteController);
 	
-	void visitMoveDiscardsToDeckController(MoveDiscardsToDeckController moveDiscardsToDeckController);
+	void visitMoveDiscardsToDeck(MoveDiscardsToDeckController moveDiscardsToDeckController);
 	
-	void visitMoveDiscardsToFoundationCotroller(MoveDiscardsToFoundationController moveDiscardsToFoundationController);
+	void visitMoveDiscardsToFoundation(MoveDiscardsToFoundationController moveDiscardsToFoundationController);
 	
-	void visitMoveDiscardsToBoardStairController(MoveDiscardsToBoardStairController moveDiscardsToStairController);
+	void visitMoveDiscardsToBoardStair(MoveDiscardsToBoardStairController moveDiscardsToStairController);
 	
-	void visitMoveBoarsStairToBoardStairController(MoveBoardStairToBoardStairController moveBoardStairToBoardStairController);
+	void visitMoveBoardStairToFoundation(MoveBoardStairToFoundationController moveBoardStairToFoundationController);
+	
+	void visitMoveBoarsStairToBoardStair(MoveBoardStairToBoardStairController moveBoardStairToBoardStairController);
+	
+	void visitFlipLastCardOfBoardStair(FlipLastCardOfBoardStairController flipLastCardOfBoardStair);
 	
 }

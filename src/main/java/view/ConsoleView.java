@@ -1,7 +1,9 @@
 package view;
 
 import controller.OptionController;
+import controller.FlipLastCardOfBoardStairController;
 import controller.MoveBoardStairToBoardStairController;
+import controller.MoveBoardStairToFoundationController;
 import controller.MoveDeckToDiscardsController;
 import controller.MoveDiscardsToDeckController;
 import controller.MoveDiscardsToFoundationController;
@@ -22,28 +24,38 @@ public class ConsoleView implements View {
 	}
 
 	@Override
-	public void visitMoveDeckToDiscardsController(MoveDeckToDiscardsController moveDeckToWasteController) {
+	public void visitMoveDeckToDiscards(MoveDeckToDiscardsController moveDeckToWasteController) {
 		gameView.interact(moveDeckToWasteController);
 	}
 
 	@Override
-	public void visitMoveDiscardsToDeckController(MoveDiscardsToDeckController moveDiscardsToDeckController) {
+	public void visitMoveDiscardsToDeck(MoveDiscardsToDeckController moveDiscardsToDeckController) {
 		gameView.interact(moveDiscardsToDeckController);
 	}
 
 	@Override
-	public void visitMoveDiscardsToFoundationCotroller(MoveDiscardsToFoundationController moveDiscardsToSuitController) {
+	public void visitMoveDiscardsToFoundation(MoveDiscardsToFoundationController moveDiscardsToSuitController) {
 		gameView.interact(moveDiscardsToSuitController);
 	}
 
 	@Override
-	public void visitMoveDiscardsToBoardStairController(MoveDiscardsToBoardStairController moveDiscardsToStairController) {
+	public void visitMoveDiscardsToBoardStair(MoveDiscardsToBoardStairController moveDiscardsToStairController) {
 		gameView.interact(moveDiscardsToStairController);
 	}
 
 	@Override
-	public void visitMoveBoarsStairToBoardStairController(MoveBoardStairToBoardStairController moveBoardStairToBoardStairController) {
+	public void visitMoveBoarsStairToBoardStair(MoveBoardStairToBoardStairController moveBoardStairToBoardStairController) {
 		gameView.interact(moveBoardStairToBoardStairController);
+	}
+
+	@Override
+	public void visitMoveBoardStairToFoundation(MoveBoardStairToFoundationController moveBoardStairToFoundationController) {
+		gameView.interact(moveBoardStairToFoundationController);
+	}
+
+	@Override
+	public void visitFlipLastCardOfBoardStair(FlipLastCardOfBoardStairController flipLastCardOfBoardStair) {
+		gameView.interact(flipLastCardOfBoardStair);
 	}
 
 

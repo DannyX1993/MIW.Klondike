@@ -18,7 +18,7 @@ public class MoveDiscardsToBoardStairController extends OptionController {
 
 	@Override
 	public void accept(ControllerVisitor controllerVisitor) {
-		controllerVisitor.visitMoveDiscardsToBoardStairController(this);
+		controllerVisitor.visitMoveDiscardsToBoardStair(this);
 	}
 
 }

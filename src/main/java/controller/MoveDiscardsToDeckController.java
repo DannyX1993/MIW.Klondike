@@ -11,7 +11,7 @@ public class MoveDiscardsToDeckController extends OptionController {
 
 	@Override
 	public void accept(ControllerVisitor controllerVisitor) {
-		controllerVisitor.visitMoveDiscardsToDeckController(this);
+		controllerVisitor.visitMoveDiscardsToDeck(this);
 	}
 
 }

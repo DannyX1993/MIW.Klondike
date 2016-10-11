@@ -11,7 +11,7 @@ public class MoveDiscardsToFoundationController extends OptionController {
 	
 	@Override
 	public void accept(ControllerVisitor controllerVisitor) {
-		controllerVisitor.visitMoveDiscardsToFoundationCotroller(this);
+		controllerVisitor.visitMoveDiscardsToFoundation(this);
 	}
 
 }

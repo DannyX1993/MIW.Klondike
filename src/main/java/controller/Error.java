@@ -18,6 +18,8 @@ public final class Error {
 	
 	public static final String MORE_CARDS_THAN_STAIR = "ERROR!!! Se han elegido mas cartas de las disponibles en la escalera";
 	
+	public static final String CANT_FLIP = "ERROR!!! No se puede voltear una carta descubierta";
+	
 	private Error() {	
 	}
 	

@@ -6,7 +6,9 @@ import java.util.ArrayList;
 
 import controller.ControllerVisitor;
 import controller.Error;
+import controller.FlipLastCardOfBoardStairController;
 import controller.MoveBoardStairToBoardStairController;
+import controller.MoveBoardStairToFoundationController;
 import controller.SubDialogController;
 import controller.MoveDeckToDiscardsController;
 import controller.MoveDiscardsToDeckController;
@@ -23,7 +25,7 @@ public class GameView implements ControllerVisitor {
 	}
 	
 	@Override
-	public void visitMoveDeckToDiscardsController(MoveDeckToDiscardsController moveDeckToDiscardsController) {
+	public void visitMoveDeckToDiscards(MoveDeckToDiscardsController moveDeckToDiscardsController) {
 		if(moveDeckToDiscardsController.getGame().deckIsEmpty()) { 
 			io.writeln(Error.getError(Error.DECK_EMPTY));
 		} else {
@@ -32,7 +34,7 @@ public class GameView implements ControllerVisitor {
 	}
 
 	@Override
-	public void visitMoveDiscardsToDeckController(MoveDiscardsToDeckController moveDiscardsToDeckController) {
+	public void visitMoveDiscardsToDeck(MoveDiscardsToDeckController moveDiscardsToDeckController) {
 		if(!moveDiscardsToDeckController.getGame().deckIsEmpty()) {
 			io.writeln(Error.getError(Error.DECK_WITH_CARDS));
 		} else {
@@ -41,19 +43,19 @@ public class GameView implements ControllerVisitor {
 	}
 
 	@Override
-	public void visitMoveDiscardsToFoundationCotroller(MoveDiscardsToFoundationController moveDiscardsToFoundationController) {
+	public void visitMoveDiscardsToFoundation(MoveDiscardsToFoundationController moveDiscardsToFoundationController) {
 		if(moveDiscardsToFoundationController.getGame().discardsIsEmpty()) {
 			io.writeln(Error.getError(Error.NO_DISCARDS));
-		} else if(moveDiscardsToFoundationController.getGame().isFirstCardToInsertInFoundation()) {
+		} else if(moveDiscardsToFoundationController.getGame().isFirstCardToInsertInFoundationFromDiscards()) {
 			if(!moveDiscardsToFoundationController.getGame().isLastDiscardAseOfSuit()) {
 				io.writeln(Error.getError(Error.ISNT_ACE));
 			} else {
 				moveDiscardsToFoundationController.getGame().moveFromDiscardsToFoundation();
 			}
 		} else {
-			if(!moveDiscardsToFoundationController.getGame().isOneNumGreaterOfFoundationLastCard()) {
+			if(!moveDiscardsToFoundationController.getGame().isOneNumGreaterOfFoundationLastCardFromDiscard()) {
 				String orig = moveDiscardsToFoundationController.getGame().getLastDiscard().toString();
-				String dest = moveDiscardsToFoundationController.getGame().getLastCardOfFoundation().toString();
+				String dest = moveDiscardsToFoundationController.getGame().getLastCardOfFoundationFromDiscards().toString();
 				io.writeln(Error.getError(Error.PUT_ERROR, orig, dest));
 			} else {
 				moveDiscardsToFoundationController.getGame().moveFromDiscardsToFoundation();
@@ -62,7 +64,7 @@ public class GameView implements ControllerVisitor {
 	}
 
 	@Override
-	public void visitMoveDiscardsToBoardStairController(MoveDiscardsToBoardStairController moveDiscardsToStairController) {
+	public void visitMoveDiscardsToBoardStair(MoveDiscardsToBoardStairController moveDiscardsToStairController) {
 		if(moveDiscardsToStairController.getGame().discardsIsEmpty()) {
 			io.writeln(Error.getError(Error.NO_DISCARDS));
 		} else {
@@ -70,7 +72,7 @@ public class GameView implements ControllerVisitor {
 			MoveToBoardStairView moveToBoardStairView = new MoveToBoardStairView(subdialogController);
 			int destStair = getBoardStairDest(moveDiscardsToStairController, moveToBoardStairView);
 			String orig = subdialogController.getGame().getLastDiscard().toString();
-			String dest = subdialogController.getGame().getLastCardOfBoardStair(destStair).toString();
+			String dest = subdialogController.getGame().getLastCardBoardStairString(destStair).toString();
 			if(!isBoardStairEmpty(moveDiscardsToStairController, destStair)) {
 				if(subdialogController.getGame().isFirstCardToInsertInBoardStair(destStair) && !subdialogController.getGame().lastDiscardIsKing()){
 					io.writeln(Error.getError(Error.ISNT_KING));
@@ -90,7 +92,7 @@ public class GameView implements ControllerVisitor {
 	}
 	
 	@Override
-	public void visitMoveBoarsStairToBoardStairController(MoveBoardStairToBoardStairController moveBoardStairToBoardStairController) {
+	public void visitMoveBoarsStairToBoardStair(MoveBoardStairToBoardStairController moveBoardStairToBoardStairController) {
 		ArrayList<SubDialogController> subdialogControllers = moveBoardStairToBoardStairController.getSubDialogControllers();
 		MoveFromBoardStairView moveFromBoardStairView = new MoveFromBoardStairView(subdialogControllers.get(0));
 		int origStair = getBoardStairOrig(moveBoardStairToBoardStairController, moveFromBoardStairView);
@@ -123,6 +125,46 @@ public class GameView implements ControllerVisitor {
 		}
 	}
 	
+	@Override
+	public void visitMoveBoardStairToFoundation(MoveBoardStairToFoundationController moveBoardStairToFoundationController) {
+		ArrayList<SubDialogController> subdialogControllers = moveBoardStairToFoundationController.getSubDialogControllers();
+		MoveFromBoardStairView moveFromBoardStairView = new MoveFromBoardStairView(subdialogControllers.get(0));
+		int origStair = getBoardStairOrig(moveBoardStairToFoundationController, moveFromBoardStairView);
+		if(moveBoardStairToFoundationController.getGame().isBoardStairEmpty(origStair)) {
+			io.writeln(Error.getError(Error.STAIR_EMPTY));
+		} else if(moveBoardStairToFoundationController.getGame().isFirstCardToInsertInFoundationFromBoardStair(origStair)) {
+			if(!moveBoardStairToFoundationController.getGame().isLastCardOfBoardStairAseOfSuit(origStair)) {
+				io.writeln(Error.getError(Error.ISNT_ACE));
+			} else {
+				moveBoardStairToFoundationController.getGame().moveFromBoardStairToFoundation(origStair);
+			}
+		} else {
+			if(!moveBoardStairToFoundationController.getGame().isOneNumGreaterOfFoundationLastCardFromBoardStair(origStair)) {
+				String orig = moveBoardStairToFoundationController.getGame().getLastCardBoardStair(origStair).toString();
+				String dest = moveBoardStairToFoundationController.getGame().getLastCardOfFoundationFromBoardStair(origStair).toString();
+				io.writeln(Error.getError(Error.PUT_ERROR, orig, dest));
+			} else {
+				moveBoardStairToFoundationController.getGame().moveFromBoardStairToFoundation(origStair);
+			}
+		}
+	}
+	
+	@Override
+	public void visitFlipLastCardOfBoardStair(FlipLastCardOfBoardStairController flipLastCardOfBoardStair) {
+		ArrayList<SubDialogController> subdialogControllers = flipLastCardOfBoardStair.getSubDialogControllers();
+		MoveFromBoardStairView moveFromBoardStairView = new MoveFromBoardStairView(subdialogControllers.get(0));
+		int origStair = getBoardStairOrig(flipLastCardOfBoardStair, moveFromBoardStairView);
+		if(flipLastCardOfBoardStair.getGame().isBoardStairEmpty(origStair)) {
+			io.writeln(Error.getError(Error.STAIR_EMPTY));
+		} else {
+			if(flipLastCardOfBoardStair.getGame().getLastCardBoardStair(origStair).getUpturned()) {
+				io.writeln(Error.getError(Error.CANT_FLIP));
+			} else {
+				flipLastCardOfBoardStair.getGame().flipLastCardOfBoardStair(origStair);
+			}
+		}
+	}
+	
 	private int getBoardStairOrig(OptionController moveBoardStairToBoardStairController, MoveFromBoardStairView moveFromBoardStairView) {
 		return moveFromBoardStairView.getBoardStairOrig();
 	}
@@ -148,7 +190,7 @@ public class GameView implements ControllerVisitor {
 	}
 	
 	private String getLastCardBoardStair(MoveBoardStairToBoardStairController moveBoardStairToBoarStairController, int numBoardStair) {
-		return moveBoardStairToBoarStairController.getLastCardBoardStair(numBoardStair);
+		return moveBoardStairToBoarStairController.getLastCardBoardStairString(numBoardStair);
 	}
 	
 	private int getBoardStairDest(OptionController moveDiscardsToBoardStairController, MoveToBoardStairView moveToBoardStair) {
@@ -162,4 +204,5 @@ public class GameView implements ControllerVisitor {
 	private boolean isFirstNCardOrigBoardStairOneLessThanLastCardDestBoardStair(MoveBoardStairToBoardStairController moveBoardStairToBoarStairController, int origStair, int numCards, int destStair) {
 		return moveBoardStairToBoarStairController.isFirstNCardOrigBoardStairOneLessThanLastCardDestBoardStair(origStair, numCards, destStair);
 	}
+
 }
