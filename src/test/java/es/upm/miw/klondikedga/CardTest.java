@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import model.Card;
-import model.Suit;
+import es.upm.miw.klondikedga.models.Card;
+import es.upm.miw.klondikedga.models.Suit;
 
 public class CardTest {
 	

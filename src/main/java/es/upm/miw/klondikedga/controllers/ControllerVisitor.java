@@ -1,0 +1,23 @@
+package es.upm.miw.klondikedga.controllers;
+
+public interface ControllerVisitor {
+	
+	int visitMenu(MenuController menuController);
+	
+	void visitMoveDeckToDiscards(MoveDeckToDiscardsController moveDeckToWasteController);
+	
+	void visitMoveDiscardsToDeck(MoveDiscardsToDeckController moveDiscardsToDeckController);
+	
+	void visitMoveDiscardsToFoundation(MoveDiscardsToFoundationController moveDiscardsToFoundationController);
+	
+	void visitMoveDiscardsToBoardStair(MoveDiscardsToBoardStairController moveDiscardsToStairController);
+	
+	void visitMoveBoardStairToFoundation(MoveBoardStairToFoundationController moveBoardStairToFoundationController);
+	
+	void visitMoveBoarsStairToBoardStair(MoveBoardStairToBoardStairController moveBoardStairToBoardStairController);
+	
+	void visitMoveFoundationToBoardStair(MoveFoundationToBoardStairController moveFoundationToBoardStairController);
+	
+	void visitFlipLastCardOfBoardStair(FlipLastCardOfBoardStairController flipLastCardOfBoardStair);
+	
+}

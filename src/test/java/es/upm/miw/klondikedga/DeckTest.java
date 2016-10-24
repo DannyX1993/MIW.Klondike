@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import model.Card;
-import model.Deck;
-import model.Suit;
+import es.upm.miw.klondikedga.models.Card;
+import es.upm.miw.klondikedga.models.Deck;
+import es.upm.miw.klondikedga.models.Suit;
 
 public class DeckTest {
 

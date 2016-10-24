@@ -1,10 +1,9 @@
 package es.upm.miw.klondikedga;
 
-import controller.OptionController;
-import controller.Logic;
-import view.ConsoleView;
-import view.MenuView;
-import view.View;
+import es.upm.miw.klondikedga.controllers.Logic;
+import es.upm.miw.klondikedga.controllers.ActionController;
+import es.upm.miw.klondikedga.views.ConsoleView;
+import es.upm.miw.klondikedga.views.View;
 
 public class Klondike {
 
@@ -18,9 +17,10 @@ public class Klondike {
 	}
 	
 	public void play() {
-		OptionController controller;
+		ActionController controller;
 		do {
-			controller = logic.getController(new MenuView(logic.getBoard()).exploreMenu());
+			int optionSelected = view.interactWithMenu(logic.getMenuController());
+			controller = logic.getActionController(optionSelected);
 			if(controller != null) {
 				view.interact(controller);
 			}
