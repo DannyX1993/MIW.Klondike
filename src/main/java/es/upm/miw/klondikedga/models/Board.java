@@ -62,6 +62,10 @@ public class Board {
 		return foundations;
 	}
 	
+	public CardsStair getFoundation(int numFoundation) {
+		return foundations.get(numFoundation - 1);
+	}
+	
 	public ArrayList<CardsStair> getBoardStairs() {
 		return boardStairs;
 	}
@@ -123,6 +127,10 @@ public class Board {
 		Card currentDiscard = deck.getLastDiscard();
 		CardsStair foundation = getFoundationBySuit(currentDiscard.getSuit());
 		return foundation.getLastCard();
+	}
+	
+	public String getStringLastCardOfFoundation(int foundation) {
+		return foundations.get(foundation - 1).getLastCard().toString();
 	}
 	
 	public Card getLastCardOfFoundationFromBoardStair(int numBoardStair) {
@@ -197,6 +205,12 @@ public class Board {
 	public boolean isBoardStairEmpty(int numBoardStair) {
 		assert numBoardStair > 0;
 		CardsStair cStair = getBoardStair(numBoardStair);
+		return cStair.getNumCards() == 0;
+	}
+	
+	public boolean isFoundationEmpty(int numFoundation) {
+		assert numFoundation > 0;
+		CardsStair cStair = getFoundation(numFoundation);
 		return cStair.getNumCards() == 0;
 	}
 

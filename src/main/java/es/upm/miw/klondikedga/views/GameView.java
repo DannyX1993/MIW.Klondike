@@ -12,12 +12,19 @@ import es.upm.miw.klondikedga.controllers.MoveDiscardsToDeckController;
 import es.upm.miw.klondikedga.controllers.MoveDiscardsToFoundationController;
 import es.upm.miw.klondikedga.controllers.MoveFoundationToBoardStairController;
 import es.upm.miw.klondikedga.controllers.ActionController;
-import es.upm.miw.klondikedga.controllers.SubDialogController;
 import es.upm.miw.klondikedga.utils.IO;
 
 public class GameView implements ControllerVisitor {
 
 	private IO io = new IO();
+	
+	private final String FROM_STAIR_TXT = "A qué escalera?";
+	
+	private final String TO_STAIR_TXT = "De qué escalera?";
+	
+	private final String CARD_QUANTITY_TXT = "Cuántas cartas?";
+	
+	private final String FROM_FOUNDATION_TXT = "De qué palo?";
 	
 	public int interactWithMenu(MenuController menuController) {
 		return menuController.accept(this);
@@ -34,196 +41,124 @@ public class GameView implements ControllerVisitor {
 	}
 	
 	@Override
-	public void visitMoveDeckToDiscards(MoveDeckToDiscardsController moveDeckToDiscardsController) {
-		if(moveDeckToDiscardsController.getGame().deckIsEmpty()) { 
+	public void visitMoveDeckToDiscards(MoveDeckToDiscardsController controller) {
+		if(controller.getGame().deckIsEmpty()) { 
 			io.writeln(Error.getError(Error.DECK_EMPTY));
 		} else {
-			moveDeckToDiscardsController.getGame().moveFromDeckToDiscards();
+			controller.getGame().moveFromDeckToDiscards();
 		}
 	}
 
 	@Override
-	public void visitMoveDiscardsToDeck(MoveDiscardsToDeckController moveDiscardsToDeckController) {
-		if(!moveDiscardsToDeckController.getGame().deckIsEmpty()) {
+	public void visitMoveDiscardsToDeck(MoveDiscardsToDeckController controller) {
+		if(!controller.getGame().deckIsEmpty()) {
 			io.writeln(Error.getError(Error.DECK_WITH_CARDS));
 		} else {
-			moveDiscardsToDeckController.getGame().moveFromDiscardsToDeck();
+			controller.getGame().moveFromDiscardsToDeck();
 		}
 	}
 
 	@Override
-	public void visitMoveDiscardsToFoundation(MoveDiscardsToFoundationController moveDiscardsToFoundationController) {
-		if(moveDiscardsToFoundationController.getGame().discardsIsEmpty()) {
+	public void visitMoveDiscardsToFoundation(MoveDiscardsToFoundationController controller) {
+		if(controller.getGame().discardsIsEmpty()) {
 			io.writeln(Error.getError(Error.NO_DISCARDS));
-		} else if(moveDiscardsToFoundationController.getGame().isFirstCardToInsertInFoundationFromDiscards()) {
-			if(!moveDiscardsToFoundationController.getGame().isLastDiscardAseOfSuit()) {
+		} else if(controller.getGame().isFirstCardToInsertInFoundationFromDiscards()) {
+			if(!controller.getGame().isLastDiscardAseOfSuit()) {
 				io.writeln(Error.getError(Error.ISNT_ACE));
 			} else {
-				moveDiscardsToFoundationController.getGame().moveFromDiscardsToFoundation();
+				controller.getGame().moveFromDiscardsToFoundation();
 			}
 		} else {
-			if(!moveDiscardsToFoundationController.getGame().isOneNumGreaterOfFoundationLastCardFromDiscard()) {
-				String orig = moveDiscardsToFoundationController.getGame().getLastDiscard().toString();
-				String dest = moveDiscardsToFoundationController.getGame().getLastCardOfFoundationFromDiscards().toString();
+			if(!controller.getGame().isOneNumGreaterOfFoundationLastCardFromDiscard()) {
+				String orig = controller.getGame().getLastDiscard().toString();
+				String dest = controller.getGame().getLastCardOfFoundationFromDiscards().toString();
 				io.writeln(Error.getError(Error.PUT_ERROR, orig, dest));
 			} else {
-				moveDiscardsToFoundationController.getGame().moveFromDiscardsToFoundation();
+				controller.getGame().moveFromDiscardsToFoundation();
 			}
 		}
 	}
 
 	@Override
-	public void visitMoveDiscardsToBoardStair(MoveDiscardsToBoardStairController moveDiscardsToStairController) {
-		if(moveDiscardsToStairController.getGame().discardsIsEmpty()) {
-			io.writeln(Error.getError(Error.NO_DISCARDS));
+	public void visitMoveDiscardsToBoardStair(MoveDiscardsToBoardStairController controller) {
+		String err;
+		if(controller.getGame().discardsIsEmpty()) {
+			err = Error.getError(Error.NO_DISCARDS);
 		} else {
-			SubDialogController subdialogController = moveDiscardsToStairController.getSubDialogController();
-			MoveSubDialogView moveToBoardStairView = new MoveSubDialogView();
-			int destStair = getTargetBoardStair(moveToBoardStairView);
-			String orig = subdialogController.getStringLastDiscard();
-			String dest = subdialogController.getStringLastCardBoardStair(destStair);
-			if(!isBoardStairEmpty(moveDiscardsToStairController, destStair)) {
-				if(subdialogController.isFirstCardToInsertInBoardStair(destStair) && !subdialogController.lastDiscardIsKing()){
-					io.writeln(Error.getError(Error.ISNT_KING));
-				} else if(subdialogController.lastCardOfBoardStairIsSameSuit(destStair) || !subdialogController.isOneNumLessThanLastCardBoardStair(destStair)) {
-					io.writeln(Error.getError(Error.PUT_ERROR, orig, dest));
-				} else {
-					moveDiscardsToStairController.getGame().moveFromDiscardsToBoardStair(destStair);
-				}
+			int destStair = new MoveSubDialogView().getMoveResponse(FROM_STAIR_TXT, 7);
+			if(!controller.isBoardStairEmpty(destStair)) {
+				err = controller.validateMoveWhenIsntBoardStairEmpty(destStair);
 			} else {
-				if(!subdialogController.lastDiscardIsKing()) {
-					io.writeln(Error.getError(Error.PUT_ERROR, orig, dest));
-				} else {
-					moveDiscardsToStairController.getGame().moveFromDiscardsToBoardStair(destStair);
-				}
+				err = controller.validateMoveWhenIsBoardStairEmpty(destStair);
 			}
+		}
+		if(err != null) {
+			io.writeln(err);
 		}
 	}
 	
 	@Override
-	public void visitMoveBoarsStairToBoardStair(MoveBoardStairToBoardStairController moveBoardStairToBoardStairController) {
-		MoveSubDialogView moveFromBoardStairView = new MoveSubDialogView();
-		int origStair = getBoardStairOrig(moveFromBoardStairView);
-		if(isBoardStairEmpty(moveBoardStairToBoardStairController, origStair)) {
-			io.writeln(Error.getError(Error.STAIR_EMPTY));
+	public void visitMoveBoarsStairToBoardStair(MoveBoardStairToBoardStairController controller) {
+		String err;
+		int origStair = new MoveSubDialogView().getMoveResponse(TO_STAIR_TXT, 7);
+		if(controller.isBoardStairEmpty(origStair)) {
+			err = Error.getError(Error.STAIR_EMPTY);
 		} else {
-			int cardsNum = getNumCardsToMove(new MoveSubDialogView());
-			if(areMoreCardsThanBoardStair(moveBoardStairToBoardStairController, origStair, cardsNum)){
-				io.writeln(Error.getError(Error.MORE_CARDS_THAN_STAIR));
+			int cardsNum = new MoveSubDialogView().getMoveResponse(CARD_QUANTITY_TXT, 13);
+			if(controller.areMoreCardsThanBoardStair(origStair, cardsNum)){
+				err = Error.getError(Error.MORE_CARDS_THAN_STAIR);
 			} else {
-				MoveSubDialogView moveToBoardStairView = new MoveSubDialogView();
-				int destStair = getTargetBoardStair(moveToBoardStairView);
-				String orig = getFirstNCardBoardStair(moveBoardStairToBoardStairController, origStair, cardsNum);
-				String dest = getLastCardBoardStair(moveBoardStairToBoardStairController, destStair);
-				if(isBoardStairEmpty(moveBoardStairToBoardStairController, destStair)) {
-					if(!firstNCardBoardStairOrigIsKing(moveBoardStairToBoardStairController, origStair, cardsNum)){
-						io.writeln(Error.getError(Error.PUT_ERROR, orig, dest));
-					} else {
-						moveBoardStairToBoardStairController.getGame().moveFromBoardStairToBoardStair(origStair, destStair, cardsNum);
-					}
-				} else {
-					if(isFirstNCardOrigBoardStairSameSuitThanLastCardDestBoardStair(moveBoardStairToBoardStairController, origStair, cardsNum, destStair)
-							|| !isFirstNCardOrigBoardStairOneLessThanLastCardDestBoardStair(moveBoardStairToBoardStairController, origStair, cardsNum, destStair)){
-						io.writeln(Error.getError(Error.PUT_ERROR, orig, dest));
-					} else {
-						moveBoardStairToBoardStairController.getGame().moveFromBoardStairToBoardStair(origStair, destStair, cardsNum);
-					}
-				}
+				int destStair = new MoveSubDialogView().getMoveResponse(FROM_STAIR_TXT, 7);
+				err = controller.validateMoveWhenAreLessCardsThanBoardStair(origStair, cardsNum, destStair);
 			}
+		}
+		if(err != null) {
+			io.writeln(err);
 		}
 	}
 	
 	@Override
-	public void visitMoveBoardStairToFoundation(MoveBoardStairToFoundationController moveBoardStairToFoundationController) {
-		MoveSubDialogView moveFromBoardStairView = new MoveSubDialogView();
-		int origStair = getBoardStairOrig(moveFromBoardStairView);
-		if(moveBoardStairToFoundationController.getGame().isBoardStairEmpty(origStair)) {
-			io.writeln(Error.getError(Error.STAIR_EMPTY));
-		} else if(moveBoardStairToFoundationController.getGame().isFirstCardToInsertInFoundationFromBoardStair(origStair)) {
-			if(!moveBoardStairToFoundationController.getGame().isLastCardOfBoardStairAseOfSuit(origStair)) {
-				io.writeln(Error.getError(Error.ISNT_ACE));
-			} else {
-				moveBoardStairToFoundationController.getGame().moveFromBoardStairToFoundation(origStair);
-			}
+	public void visitMoveBoardStairToFoundation(MoveBoardStairToFoundationController controller) {
+		String err;
+		int origStair = new MoveSubDialogView().getMoveResponse(TO_STAIR_TXT, 7);
+		if(controller.getGame().isBoardStairEmpty(origStair)) {
+			err = Error.getError(Error.STAIR_EMPTY);
+		} else if(controller.getGame().isFirstCardToInsertInFoundationFromBoardStair(origStair)) {
+			err = controller.validateMoveWhenIsFirstCardInFoundation(origStair);
 		} else {
-			if(!moveBoardStairToFoundationController.getGame().isOneNumGreaterOfFoundationLastCardFromBoardStair(origStair)) {
-				String orig = moveBoardStairToFoundationController.getGame().getLastCardBoardStair(origStair).toString();
-				String dest = moveBoardStairToFoundationController.getGame().getLastCardOfFoundationFromBoardStair(origStair).toString();
-				io.writeln(Error.getError(Error.PUT_ERROR, orig, dest));
-			} else {
-				moveBoardStairToFoundationController.getGame().moveFromBoardStairToFoundation(origStair);
-			}
+			err = controller.validateMoveWhenIsntFirstCardInFoundation(origStair);
+		}
+		if(err != null) {
+			io.writeln(err);
 		}
 	}
 	
 	@Override
-	public void visitMoveFoundationToBoardStair(MoveFoundationToBoardStairController moveFoundationToBoardStairController) {
-		MoveSubDialogView moveFromFoundationView = new MoveSubDialogView();
-		int origFoundation = getOriginFoundation(moveFromFoundationView);
-		MoveSubDialogView moveToBoardStairView = new MoveSubDialogView();
-		int destBoardStair = getTargetBoardStair(moveToBoardStairView);
-		System.out.println("origFoundation: " + origFoundation + "\ndestBoardStair: " + destBoardStair);
-		/*String orig = getFirstNCardBoardStair(moveFoundationToBoardStairController, origStair, cardsNum);
-		String dest = getLastCardBoardStair(moveFoundationToBoardStairController, destBoardStair);*/
+	public void visitMoveFoundationToBoardStair(MoveFoundationToBoardStairController controller) {
+		int origFoundation = new MoveSubDialogView().getMoveResponse(FROM_FOUNDATION_TXT, 4);
+		if(!controller.isFoundationEmpty(origFoundation)) {
+			int destFoundation = new MoveSubDialogView().getMoveResponse(FROM_STAIR_TXT, 7);
+			// TODO -> COMPROBAR EL PALO Y EL VALOR DE LA ÚLTIMA CARTA DE LA ESCALERA DESTINO
+			// TODO -> SUSTITUIR CONSTANTES DE LOS LIMITES POR VARIABLES
+			String orig = controller.getStringFirstCardFoundation(origFoundation);
+			String dest = controller.getLastCardFoundation(destFoundation);
+		} else {
+			io.writeln(Error.getError(Error.FOUNDATION_EMPTY));
+		}
 	}
 
 	@Override
-	public void visitFlipLastCardOfBoardStair(FlipLastCardOfBoardStairController flipLastCardOfBoardStair) {
-		MoveSubDialogView moveFromBoardStairView = new MoveSubDialogView();
-		int origStair = getBoardStairOrig(moveFromBoardStairView);
-		if(flipLastCardOfBoardStair.getGame().isBoardStairEmpty(origStair)) {
-			io.writeln(Error.getError(Error.STAIR_EMPTY));
+	public void visitFlipLastCardOfBoardStair(FlipLastCardOfBoardStairController controller) {
+		String err;
+		int origStair = new MoveSubDialogView().getMoveResponse(TO_STAIR_TXT, 7);
+		if(controller.getGame().isBoardStairEmpty(origStair)) {
+			err = Error.getError(Error.STAIR_EMPTY);
 		} else {
-			if(flipLastCardOfBoardStair.getGame().getLastCardBoardStair(origStair).getUpturned()) {
-				io.writeln(Error.getError(Error.CANT_FLIP));
-			} else {
-				flipLastCardOfBoardStair.getGame().flipLastCardOfBoardStair(origStair);
-			}
+			err = controller.validateMoveWhenBoardIsntEmpty(origStair);
 		}
-	}
-	
-	private boolean isBoardStairEmpty(ActionController moveBoardStairToBoarStairController, int numBoardStair) {
-		return moveBoardStairToBoarStairController.isBoardStairEmpty(numBoardStair);
-	}
-	
-	private int getBoardStairOrig(MoveSubDialogView moveFromBoardStairView) {
-		return moveFromBoardStairView.getMoveResponse("De qué escalera?", 7);
-	}
-	
-	private int getOriginFoundation(MoveSubDialogView moveFoundationView) {
-		return moveFoundationView.getMoveResponse("De qué palo?", 4);
-	}
-	
-	private int getNumCardsToMove(MoveSubDialogView moveNumCardsView) {
-		return moveNumCardsView.getMoveResponse("Cuántas cartas?", 13);
-	}
-	
-	private int getTargetBoardStair(MoveSubDialogView moveToBoardStairView) {
-		return moveToBoardStairView.getMoveResponse("A qué escalera?", 7);
-	}
-	
-	private boolean areMoreCardsThanBoardStair(MoveBoardStairToBoardStairController moveBoardStairToBoarStairController, int numStair, int cardsNum) {
-		return moveBoardStairToBoarStairController.areMoreCardsThanBoardStair(numStair, cardsNum);
-	}
-	
-	private boolean firstNCardBoardStairOrigIsKing(MoveBoardStairToBoardStairController moveBoardStairToBoarStairController, int numBoardStair, int numCards) {
-		return moveBoardStairToBoarStairController.firstCardBoardStairOrigIsKing(numBoardStair, numCards);
-	}
-	
-	private String getFirstNCardBoardStair(MoveBoardStairToBoardStairController moveBoardStairToBoarStairController, int numBoardStair, int cardsNum) {
-		return moveBoardStairToBoarStairController.getFirstNCardBoardStair(numBoardStair, cardsNum);
-	}
-	
-	private String getLastCardBoardStair(MoveBoardStairToBoardStairController moveBoardStairToBoarStairController, int numBoardStair) {
-		return moveBoardStairToBoarStairController.getLastCardBoardStairString(numBoardStair);
-	}
-	
-	private boolean isFirstNCardOrigBoardStairSameSuitThanLastCardDestBoardStair(MoveBoardStairToBoardStairController moveBoardStairToBoarStairController, int origStair, int numCards, int destStair) {
-		return moveBoardStairToBoarStairController.isFirstNCardOrigBoardStairSameSuitThanLastCardDestBoardStair(origStair, numCards, destStair);
-	}
-
-	private boolean isFirstNCardOrigBoardStairOneLessThanLastCardDestBoardStair(MoveBoardStairToBoardStairController moveBoardStairToBoarStairController, int origStair, int numCards, int destStair) {
-		return moveBoardStairToBoarStairController.isFirstNCardOrigBoardStairOneLessThanLastCardDestBoardStair(origStair, numCards, destStair);
+		if(err != null) {
+			io.writeln(err);
+		}
 	}
 
 }

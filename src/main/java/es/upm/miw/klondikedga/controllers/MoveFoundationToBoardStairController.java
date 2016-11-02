@@ -16,4 +16,16 @@ public class MoveFoundationToBoardStairController extends ActionSubDialogControl
 		controllerVisitor.visitMoveFoundationToBoardStair(this);
 	}
 
+	public String getStringFirstCardFoundation(int origFoundation) {
+		return getGame().getBoard().getFoundations().get(origFoundation - 1).getLastCard().toString();
+	}
+
+	public boolean isFoundationEmpty(int origFoundation) {
+		return getGame().isFoundationEmpty(origFoundation);
+	}
+
+	public String getLastCardFoundation(int destFoundation) {
+		return getGame().getStringLastCardOfFoundation(destFoundation);
+	}
+
 }

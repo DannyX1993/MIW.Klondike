@@ -15,4 +15,24 @@ public class MoveBoardStairToFoundationController extends ActionSubDialogControl
 		controllerVisitor.visitMoveBoardStairToFoundation(this);
 	}
 
+	public String validateMoveWhenIsFirstCardInFoundation(int origStair) {
+		if(!getGame().isLastCardOfBoardStairAseOfSuit(origStair)) {
+			return Error.getError(Error.ISNT_ACE);
+		} else {
+			getGame().moveFromBoardStairToFoundation(origStair);
+		}
+		return null;
+	}
+
+	public String validateMoveWhenIsntFirstCardInFoundation(int origStair) {
+		if(!getGame().isOneNumGreaterOfFoundationLastCardFromBoardStair(origStair)) {
+			String orig = getGame().getLastCardBoardStair(origStair).toString();
+			String dest = getGame().getLastCardOfFoundationFromBoardStair(origStair).toString();
+			return Error.getError(Error.PUT_ERROR, orig, dest);
+		} else {
+			getGame().moveFromBoardStairToFoundation(origStair);
+		}
+		return null;
+	}
+
 }

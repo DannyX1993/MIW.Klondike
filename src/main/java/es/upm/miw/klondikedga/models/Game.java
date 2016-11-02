@@ -111,6 +111,10 @@ public class Game {
 		board.moveFromDiscardsToBoardStair(numBoardStair);
 	}
 
+	public boolean isFoundationEmpty(int numFoundation) {
+		return board.isFoundationEmpty(numFoundation);
+	}
+	
 	public boolean isBoardStairEmpty(int numBoardStair) {
 		return board.isBoardStairEmpty(numBoardStair);
 	}
@@ -141,5 +145,9 @@ public class Game {
 	
 	public void moveFromBoardStairToBoardStair(int origStair, int destStair, int numCards) {
 		board.moveFromBoardStairToBoardStair(origStair, destStair, numCards);
+	}
+
+	public String getStringLastCardOfFoundation(int destFoundation) {
+		return board.getStringLastCardOfFoundation(destFoundation);
 	}
 }

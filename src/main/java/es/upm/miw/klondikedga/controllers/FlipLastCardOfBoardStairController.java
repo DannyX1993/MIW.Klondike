@@ -15,4 +15,13 @@ public class FlipLastCardOfBoardStairController extends ActionSubDialogControlle
 		controllerVisitor.visitFlipLastCardOfBoardStair(this);
 	}
 
+	public String validateMoveWhenBoardIsntEmpty(int origStair) {
+		if(getGame().getLastCardBoardStair(origStair).getUpturned()) {
+			return Error.getError(Error.CANT_FLIP);
+		} else {
+			getGame().flipLastCardOfBoardStair(origStair);
+		}
+		return null;
+	}
+
 }

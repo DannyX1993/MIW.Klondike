@@ -18,29 +18,49 @@ public class MoveBoardStairToBoardStairController extends ActionSubDialogControl
 		return getGame().areMoreCardsThanBoardStair(numStair, cardsNum);
 	}
 	
-	public boolean firstCardBoardStairOrigIsKing(int numBoardStair, int numCards) {
-		return getGame().firstCardBoardStairOrigIsKing(numBoardStair, numCards);
-	}
-	
-	public String getFirstNCardBoardStair(int numBoardStair, int cardsNum) {
-		return getGame().getFirstNCardBoardStair(numBoardStair, cardsNum);
-	}
-	
-	public String getLastCardBoardStairString(int numBoardStair) {
-		return getGame().getLastCardBoardStairString(numBoardStair);
-	}
-	
-	public boolean isFirstNCardOrigBoardStairSameSuitThanLastCardDestBoardStair(int origStair, int numCards, int destStair) {
-		return getGame().isFirstNCardOrigBoardStairSameSuitThanLastCardDestBoardStair(origStair, numCards, destStair);
-	}
-
-	public boolean isFirstNCardOrigBoardStairOneLessThanLastCardDestBoardStair(int origStair, int numCards, int destStair) {
-		return getGame().isFirstNCardOrigBoardStairOneLessThanLastCardDestBoardStair(origStair, numCards, destStair);
-	}
-	
 	@Override
 	public void accept(ControllerVisitor controllerVisitor) {
 		controllerVisitor.visitMoveBoarsStairToBoardStair(this);
+	}
+
+	public String validateMoveWhenAreLessCardsThanBoardStair(int origStair, int cardsNum, int destStair) {
+		String orig = getFirstNCardBoardStair(origStair, cardsNum);
+		String dest = getLastCardBoardStairString(destStair);
+		if(isBoardStairEmpty(destStair)) {
+			if(!firstCardBoardStairOrigIsKing(origStair, cardsNum)){
+				return Error.getError(Error.PUT_ERROR, orig, dest);
+			} else {
+				getGame().moveFromBoardStairToBoardStair(origStair, destStair, cardsNum);
+			}
+		} else {
+			if(isFirstNCardOrigBoardStairSameSuitThanLastCardDestBoardStair(origStair, cardsNum, destStair)
+					|| !isFirstNCardOrigBoardStairOneLessThanLastCardDestBoardStair(origStair, cardsNum, destStair)){
+				return Error.getError(Error.PUT_ERROR, orig, dest);
+			} else {
+				getGame().moveFromBoardStairToBoardStair(origStair, destStair, cardsNum);
+			}
+		}
+		return null;
+	}
+	
+	private boolean firstCardBoardStairOrigIsKing(int numBoardStair, int numCards) {
+		return getGame().firstCardBoardStairOrigIsKing(numBoardStair, numCards);
+	}
+	
+	private String getFirstNCardBoardStair(int numBoardStair, int cardsNum) {
+		return getGame().getFirstNCardBoardStair(numBoardStair, cardsNum);
+	}
+	
+	private String getLastCardBoardStairString(int numBoardStair) {
+		return getGame().getLastCardBoardStairString(numBoardStair);
+	}
+	
+	private boolean isFirstNCardOrigBoardStairSameSuitThanLastCardDestBoardStair(int origStair, int numCards, int destStair) {
+		return getGame().isFirstNCardOrigBoardStairSameSuitThanLastCardDestBoardStair(origStair, numCards, destStair);
+	}
+
+	private boolean isFirstNCardOrigBoardStairOneLessThanLastCardDestBoardStair(int origStair, int numCards, int destStair) {
+		return getGame().isFirstNCardOrigBoardStairOneLessThanLastCardDestBoardStair(origStair, numCards, destStair);
 	}
 
 }

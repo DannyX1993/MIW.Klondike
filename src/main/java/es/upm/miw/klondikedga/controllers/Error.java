@@ -8,6 +8,8 @@ public final class Error {
 	
 	public static final String NO_DISCARDS = "ERROR!!! No hay descartes";
 	
+	public static final String FOUNDATION_EMPTY = "ERROR!!! Ese palo está vacío";
+	
 	public static final String ISNT_ACE = "ERROR!!! La primera carta de un palo debe ser un as";
 	
 	public static final String PUT_ERROR = "ERROR!!! No se puede poner %o sobre %d";
