@@ -135,15 +135,16 @@ public class GameView implements ControllerVisitor {
 	
 	@Override
 	public void visitMoveFoundationToBoardStair(MoveFoundationToBoardStairController controller) {
+		String err;
 		int origFoundation = new MoveSubDialogView().getMoveResponse(FROM_FOUNDATION_TXT, 4);
 		if(!controller.isFoundationEmpty(origFoundation)) {
-			int destFoundation = new MoveSubDialogView().getMoveResponse(FROM_STAIR_TXT, 7);
-			// TODO -> COMPROBAR EL PALO Y EL VALOR DE LA ÚLTIMA CARTA DE LA ESCALERA DESTINO
-			// TODO -> SUSTITUIR CONSTANTES DE LOS LIMITES POR VARIABLES
-			String orig = controller.getStringFirstCardFoundation(origFoundation);
-			String dest = controller.getLastCardFoundation(destFoundation);
+			int destStair = new MoveSubDialogView().getMoveResponse(FROM_STAIR_TXT, 7);
+			err = controller.validateMoveWhenFoundationIsntEmpty(origFoundation, destStair);
 		} else {
-			io.writeln(Error.getError(Error.FOUNDATION_EMPTY));
+			err = Error.getError(Error.FOUNDATION_EMPTY);
+		}
+		if(err != null) {
+			io.writeln(err);
 		}
 	}
 

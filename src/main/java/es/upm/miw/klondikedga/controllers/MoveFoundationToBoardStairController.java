@@ -2,6 +2,7 @@ package es.upm.miw.klondikedga.controllers;
 
 import java.util.ArrayList;
 
+import es.upm.miw.klondikedga.models.Card;
 import es.upm.miw.klondikedga.models.Game;
 
 public class MoveFoundationToBoardStairController extends ActionSubDialogController {
@@ -16,7 +17,7 @@ public class MoveFoundationToBoardStairController extends ActionSubDialogControl
 		controllerVisitor.visitMoveFoundationToBoardStair(this);
 	}
 
-	public String getStringFirstCardFoundation(int origFoundation) {
+	private String getStringFirstCardFoundation(int origFoundation) {
 		return getGame().getBoard().getFoundations().get(origFoundation - 1).getLastCard().toString();
 	}
 
@@ -24,8 +25,25 @@ public class MoveFoundationToBoardStairController extends ActionSubDialogControl
 		return getGame().isFoundationEmpty(origFoundation);
 	}
 
-	public String getLastCardFoundation(int destFoundation) {
-		return getGame().getStringLastCardOfFoundation(destFoundation);
+	private String getStringLastCardBoardStair(int destStair) {
+		return getGame().getStringLastCardBoardStair(destStair);
+	}
+
+	public String validateMoveWhenFoundationIsntEmpty(int numFoundation, int destStair) {
+		Card lastBoardStairCard = getGame().getLastCardBoardStair(destStair);
+		if((lastBoardStairCard == null || !lastBoardStairCard.getUpturned()) && getGame().lastFoundationCardIsKing(numFoundation)) {
+			getGame().moveFromFoundationToBoardStair(numFoundation, destStair);
+		} else if(lastBoardStairCard == null || !lastBoardStairCard.getUpturned()) {
+			return Error.getError(Error.ISNT_KING);
+		} else if(getGame().lastFoundationIsOneNumLessThanLastCardBoardStair(numFoundation, destStair) && 
+				!getGame().lastCardOfBoardStairIsSameSuitThanLastFoundationCard(numFoundation, destStair)) {
+			getGame().moveFromFoundationToBoardStair(numFoundation, destStair);
+		} else {
+			String orig = getStringFirstCardFoundation(numFoundation);
+			String dest = getStringLastCardBoardStair(destStair);
+			return Error.getError(Error.PUT_ERROR, orig, dest);
+		}
+		return null;
 	}
 
 }

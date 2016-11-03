@@ -31,11 +31,11 @@ public class SubDialogController {
 	}
 	
 	public boolean lastCardOfBoardStairIsSameSuit(int destStair) {
-		return getGame().lastCardOfBoardStairIsSameSuit(destStair);
+		return getGame().lastCardOfBoardStairIsSameSuitThanLastDiscard(destStair);
 	}
 	
 	public boolean isOneNumLessThanLastCardBoardStair(int destStair) {
-		return getGame().isOneNumLessThanLastCardBoardStair(destStair);
+		return getGame().lastDiscardIsOneNumLessThanLastCardBoardStair(destStair);
 	}
 	
 }

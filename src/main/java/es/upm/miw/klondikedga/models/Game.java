@@ -95,12 +95,24 @@ public class Game {
 		return board.lastDiscardIsKing();
 	}
 	
-	public boolean lastCardOfBoardStairIsSameSuit(int numBoardStair) {
-		return board.lastCardOfBoardStairIsSameSuit(numBoardStair);
+	public boolean lastFoundationCardIsKing(int numFoundation) {
+		return board.lastFoundationCardIsKing(numFoundation);
 	}
 	
-	public boolean isOneNumLessThanLastCardBoardStair(int numBoardStair) {
-		return board.isOneNumLessThanLastCardBoardStair(numBoardStair);
+	public boolean lastFoundationIsOneNumLessThanLastCardBoardStair(int numFoundation, int numStair) {
+		return board.lastFoundationIsOneNumLessThanLastCardBoardStair(numFoundation, numStair);
+	}
+	
+	public boolean lastCardOfBoardStairIsSameSuitThanLastDiscard(int numBoardStair) {
+		return board.lastCardOfBoardStairIsSameSuitThanLastDiscard(numBoardStair);
+	}
+	
+	public boolean lastCardOfBoardStairIsSameSuitThanLastFoundationCard(int numFoundation, int numStair) {
+		return board.lastCardOfBoardStairIsSameSuitThanLastFoundationCard(numFoundation, numStair);
+	}
+	
+	public boolean lastDiscardIsOneNumLessThanLastCardBoardStair(int numBoardStair) {
+		return board.lastDiscardIsOneNumLessThanLastCardBoardStair(numBoardStair);
 	}
 	
 	public Card getLastCardBoardStair(int numBoardStair) {
@@ -147,7 +159,11 @@ public class Game {
 		board.moveFromBoardStairToBoardStair(origStair, destStair, numCards);
 	}
 
-	public String getStringLastCardOfFoundation(int destFoundation) {
-		return board.getStringLastCardOfFoundation(destFoundation);
+	public String getStringLastCardBoardStair(int destFoundation) {
+		return board.getLastCardBoardStairString(destFoundation);
+	}
+
+	public void moveFromFoundationToBoardStair(int numFoundation, int destStair) {
+		board.moveFromFoundationToBoardStair(numFoundation, destStair);
 	}
 }

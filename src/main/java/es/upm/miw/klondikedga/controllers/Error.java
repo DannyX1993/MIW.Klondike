@@ -14,7 +14,7 @@ public final class Error {
 	
 	public static final String PUT_ERROR = "ERROR!!! No se puede poner %o sobre %d";
 	
-	public static final String ISNT_KING = "ERROR!!! La primera carte de una escalera debe ser un rey";
+	public static final String ISNT_KING = "ERROR!!! La primera carta de una escalera debe ser un rey";
 	
 	public static final String STAIR_EMPTY = "ERROR!!! Esa escalera está vacía";
 	

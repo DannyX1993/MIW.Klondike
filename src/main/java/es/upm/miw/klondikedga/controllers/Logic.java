@@ -36,7 +36,7 @@ public class Logic {
 	}
 	
 	private void initActionControllers() {
-		actionsControllers = new ArrayList<ActionController>();
+		actionsControllers = new ArrayList<>();
 		actionsControllers.add(new MoveDeckToDiscardsController(game));
 		actionsControllers.add(new MoveDiscardsToDeckController(game));
 		actionsControllers.add(new MoveDiscardsToFoundationController(game));
@@ -46,18 +46,18 @@ public class Logic {
 		subdialogControllers.add(new SubDialogController(game));
 		actionsControllers.add(new MoveBoardStairToFoundationController(game, subdialogControllers));
 		
-		subdialogControllers = new ArrayList<SubDialogController>(3);
+		subdialogControllers = new ArrayList<>(3);
 		subdialogControllers.add(new SubDialogController(game));
 		subdialogControllers.add(new SubDialogController(game));
 		subdialogControllers.add(new SubDialogController(game));
 		actionsControllers.add(new MoveBoardStairToBoardStairController(game, subdialogControllers));
 		
-		subdialogControllers = new ArrayList<SubDialogController>(2);
+		subdialogControllers = new ArrayList<>(2);
 		subdialogControllers.add(new SubDialogController(game));
 		subdialogControllers.add(new SubDialogController(game));
 		actionsControllers.add(new MoveFoundationToBoardStairController(game, subdialogControllers));
 		
-		subdialogControllers = new ArrayList<SubDialogController>(1);
+		subdialogControllers = new ArrayList<>(1);
 		subdialogControllers.add(new SubDialogController(game));
 		actionsControllers.add(new FlipLastCardOfBoardStairController(game, subdialogControllers));
 	}
