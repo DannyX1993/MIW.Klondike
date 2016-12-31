@@ -68,6 +68,9 @@ public class Logic {
 	
 	public ActionController getActionController(int option) {
 		assert option > 0;
+		if(option == 9) {
+			System.exit(0);
+		}
 		return actionsControllers.get(option - 1);
 	}
 	
