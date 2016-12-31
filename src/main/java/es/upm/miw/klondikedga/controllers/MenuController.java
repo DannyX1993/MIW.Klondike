@@ -55,6 +55,7 @@ public class MenuController {
 			ret += cStair.toString();
 			i++;
 		}
+		ret += "\n";
 		return ret;
 	}
 	

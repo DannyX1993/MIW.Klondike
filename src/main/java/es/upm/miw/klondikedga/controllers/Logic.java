@@ -31,6 +31,10 @@ public class Logic {
 		this.menuController = new MenuController(game);
 	}
 	
+	public boolean isTheEndOfGame() {
+		return game.isTheEndOfGame();
+	}
+	
 	public MenuController getMenuController() {
 		return this.menuController;
 	}

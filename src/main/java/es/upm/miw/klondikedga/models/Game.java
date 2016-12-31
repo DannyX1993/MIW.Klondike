@@ -166,4 +166,15 @@ public class Game {
 	public void moveFromFoundationToBoardStair(int numFoundation, int destStair) {
 		board.moveFromFoundationToBoardStair(numFoundation, destStair);
 	}
+
+	public boolean isTheEndOfGame() {
+		boolean completed = true;
+		for(CardsStair stair : board.getFoundations()) {
+			if(stair.getNumCards() < CardsStair.MAX_CARDS) {
+				completed = false;
+				break;
+			}
+		}
+		return completed;
+	}
 }

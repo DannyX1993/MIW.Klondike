@@ -75,5 +75,10 @@ public class ConsoleView implements View {
 	public void visitFlipLastCardOfBoardStair(FlipLastCardOfBoardStairController flipLastCardOfBoardStair) {
 		gameView.interact(flipLastCardOfBoardStair);
 	}
+	
+	@Override
+	public void showTheEndOfGameMessage() {
+		new MessageView("¡Has ganado el juego!¡Enhorabuena!").printMessage();
+	}
 
 }

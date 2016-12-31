@@ -24,6 +24,10 @@ public class Klondike {
 			if(controller != null) {
 				view.interact(controller);
 			}
+			if(logic.isTheEndOfGame()) {
+				view.showTheEndOfGameMessage();
+				controller = null;
+			}
 		} while(controller != null);
 	}
 	

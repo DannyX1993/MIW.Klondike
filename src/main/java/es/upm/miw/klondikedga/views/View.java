@@ -9,5 +9,6 @@ public interface View extends ControllerVisitor {
 	public int interactWithMenu(MenuController menuController);
 	
 	public void interact(ActionController controller);
-	
+
+	public void showTheEndOfGameMessage();
 }

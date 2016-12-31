@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.11" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="es.upm.miw.klondikedga.Klondike" project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/Klondike.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="155" width="511" x="1933" y="-748"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="es.upm.miw.klondikedga.controllers.ActionController" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/ActionController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1018" y="71"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="es.upm.miw.klondikedga.controllers.ActionSubDialogController" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/ActionSubDialogController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="714" y="304"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="4" language="java" name="es.upm.miw.klondikedga.controllers.ControllerVisitor" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/ControllerVisitor.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="616" y="1087"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="5" language="java" name="es.upm.miw.klondikedga.controllers.Error" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/Error.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="688" y="-383"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="es.upm.miw.klondikedga.controllers.FlipLastCardOfBoardStairController" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/FlipLastCardOfBoardStairController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="180" y="371"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="es.upm.miw.klondikedga.controllers.Logic" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/Logic.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1311" y="316"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="es.upm.miw.klondikedga.controllers.MenuController" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/MenuController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1313" y="613"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="es.upm.miw.klondikedga.controllers.MoveBoardStairToBoardStairController" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/MoveBoardStairToBoardStairController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="184" y="592"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="es.upm.miw.klondikedga.controllers.MoveBoardStairToFoundationController" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/MoveBoardStairToFoundationController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="426" y="803"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="es.upm.miw.klondikedga.controllers.MoveDeckToDiscardsController" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/MoveDeckToDiscardsController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="626" y="70"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="es.upm.miw.klondikedga.controllers.MoveDiscardsToBoardStairController" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/MoveDiscardsToBoardStairController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="698" y="-114"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="es.upm.miw.klondikedga.controllers.MoveDiscardsToDeckController" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/MoveDiscardsToDeckController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1047" y="-154"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="es.upm.miw.klondikedga.controllers.MoveDiscardsToFoundationController" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/MoveDiscardsToFoundationController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1347" y="-155"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="es.upm.miw.klondikedga.controllers.MoveFoundationToBoardStairController" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/MoveFoundationToBoardStairController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="950" y="812"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="es.upm.miw.klondikedga.controllers.SubDialogController" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/controllers/SubDialogController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="14" y="127"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="es.upm.miw.klondikedga.models.Board" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/models/Board.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3264" y="132"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="es.upm.miw.klondikedga.models.BoardStair" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/models/BoardStair.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3460" y="708"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="es.upm.miw.klondikedga.models.CardsStair" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/models/CardsStair.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3138" y="820"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="es.upm.miw.klondikedga.models.Card" project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/models/Card.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3374" y="1286"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="es.upm.miw.klondikedga.models.Deck" project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/models/Deck.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2798" y="882"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="es.upm.miw.klondikedga.models.Foundation" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/models/Foundation.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3460" y="894"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="es.upm.miw.klondikedga.models.Game" project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/models/Game.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2694" y="208"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="es.upm.miw.klondikedga.models.Menu" project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/models/Menu.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2434" y="796"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="25" language="java" name="es.upm.miw.klondikedga.models.Option" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/models/Option.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2418" y="1082"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="26" language="java" name="es.upm.miw.klondikedga.models.Suit" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/models/Suit.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3008" y="1308"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="27" language="java" name="es.upm.miw.klondikedga.models.SymbolsCard" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/models/SymbolsCard.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3598" y="1228"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="28" language="java" name="es.upm.miw.klondikedga.views.ClosedIntervalView" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/views/ClosedIntervalView.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="142" y="2256"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="es.upm.miw.klondikedga.views.ConsoleView" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/views/ConsoleView.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="916" y="2316"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="es.upm.miw.klondikedga.views.GameView" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/views/GameView.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="626" y="1920"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="es.upm.miw.klondikedga.views.MenuView" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/views/MenuView.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1170" y="1836"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="es.upm.miw.klondikedga.views.MessageView" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/views/MessageView.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="108" y="1808"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="es.upm.miw.klondikedga.views.MoveSubDialogView" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/views/MoveSubDialogView.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="128" y="1976"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="34" language="java" name="es.upm.miw.klondikedga.views.View" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/views/View.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1050" y="1488"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="35" language="java" name="es.upm.miw.klondikedga.utils.ClosedInterval" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/utils/ClosedInterval.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-784" y="1676"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="es.upm.miw.klondikedga.utils.IntDialog" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/utils/IntDialog.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-768" y="1908"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="es.upm.miw.klondikedga.utils.IO" project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/utils/IO.java" binary="false" 
+    corner="TOP_LEFT">    
+    <position height="-1" width="-1" x="-640" y="1401"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="es.upm.miw.klondikedga.utils.LimitedIntDialog" 
+    project="Klondike.Daniel.Gonzalez.miw.upm.es" 
+    file="/Klondike.Daniel.Gonzalez.miw.upm.es/src/main/java/es/upm/miw/klondikedga/utils/LimitedIntDialog.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-524" y="2068"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="39">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="40" name="game"/>      
+      <multiplicity id="41" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="42">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="43" name="limitsView"/>      
+      <multiplicity id="44" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="45">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="46" name="discards"/>      
+      <multiplicity id="47" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="48">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="49" name="limits"/>      
+      <multiplicity id="50" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="51">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="52">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="53">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <association id="54">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="55" name="subdialogControllers"/>      
+      <multiplicity id="56" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="57">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <association id="58">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="59" name="foundations"/>      
+      <multiplicity id="60" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="62" name="io"/>      
+      <multiplicity id="63" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="64">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <association id="65">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="66" name="logic"/>      
+      <multiplicity id="67" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="68">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="69" name="suit"/>      
+      <multiplicity id="70" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="71">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="72">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="73" name="options"/>      
+      <multiplicity id="74" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="75">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="76">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="77" name="game"/>      
+      <multiplicity id="78" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="79">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="80">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="81" name="game"/>      
+      <multiplicity id="82" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="83">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="84" name="cards"/>      
+      <multiplicity id="85" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="86">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="87" name="io"/>      
+      <multiplicity id="88" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="89">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="90">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="91" name="menuController"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="93">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="94" name="suit"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="96">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="97" name="board"/>      
+      <multiplicity id="98" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="99">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="100">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="101" name="boardStairs"/>      
+      <multiplicity id="102" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="103">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="104" name="deck"/>      
+      <multiplicity id="105" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="106">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="107" name="io"/>      
+      <multiplicity id="108" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="109">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="110" name="actionsControllers"/>      
+      <multiplicity id="111" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="112">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="113">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="114" name="gameView"/>      
+      <multiplicity id="115" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="116">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="117" name="cards"/>      
+      <multiplicity id="118" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="119">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="120" name="menuController"/>      
+      <multiplicity id="121" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="122">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="123" name="closedInterval"/>      
+      <multiplicity id="124" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="125">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="126" name="view"/>      
+      <multiplicity id="127" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="128">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="129">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="130" name="subDialogController"/>      
+      <multiplicity id="131" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="132">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="133" name="io"/>      
+      <multiplicity id="134" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="135">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="136" name="intDialog"/>      
+      <multiplicity id="137" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="138">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="139" name="game"/>      
+      <multiplicity id="140" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="141">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="142">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <association id="143">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="144" name="menu"/>      
+      <multiplicity id="145" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
